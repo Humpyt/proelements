@@ -50,6 +50,7 @@ class Editor extends App {
 
 	public function get_init_settings() {
 		$settings = [
+			'version' => ELEMENTOR_PRO_VERSION,
 			'isActive' => License_API::is_license_active(),
 			'urls' => [
 				'modules' => ELEMENTOR_PRO_MODULES_URL,

@@ -3,7 +3,6 @@ namespace ElementorPro\License;
 
 use Elementor\Core\Common\Modules\Connect\Module as ConnectModule;
 use ElementorPro\Plugin;
-use ElementorPro\Modules\Tiers\Module as Tiers;
 use Elementor\Api as Core_API;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -108,26 +107,26 @@ class API {
 		$license_data['success'] = true;
 		$license_data['expires'] = 'lifetime';
 		$license_data['features'] = [  
-			'custom-attributes',
-			'custom_code',
-			'custom-css',
-			'global-css',
-			'display-conditions',
-			'dynamic-tags-acf',
-			'dynamic-tags-pods',
-			'dynamic-tags-toolset',
-			'element-manager-permissions',
-			'global-widget',
-			'editor_comments',
-			'stripe-button',
-			'popup',
-			'role-manager',
-			'woocommerce-menu-cart',
-			'product-single',
-			'product-archive',
-			'settings-woocommerce-pages',
-			'settings-woocommerce-notices',
-			'dynamic-tags-wc',
+	         'custom-attributes',
+	         'custom_code',
+	         'custom-css',
+	         'global-css',
+	         'display-conditions',
+	         'dynamic-tags-acf',
+	         'dynamic-tags-pods',
+	         'dynamic-tags-toolset',
+	         'element-manager-permissions',
+	         'global-widget',
+	         'editor_comments',
+	         'stripe-button',
+	         'popup',
+	         'role-manager',
+	         'woocommerce-menu-cart',
+	         'product-single',
+	         'product-archive',
+	         'settings-woocommerce-pages',
+	         'settings-woocommerce-notices',
+	         'dynamic-tags-wc',
 			'atomic-custom-attributes',
 			'theme-builder',
 			'form-submissions',

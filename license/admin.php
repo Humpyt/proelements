@@ -1,22 +1,18 @@
 <?php
 namespace ElementorPro\License;
 
-use Elementor\Core\Admin\Admin_Notices;
-use Elementor\Settings;
-use Elementor\Utils;
-use ElementorPro\Core\Utils as Pro_Utils;
+use ElementorPro\Base\Editor_One_Trait;
 use ElementorPro\Core\Connect\Apps\Activate;
 use ElementorPro\License\Data\Controller;
-use ElementorPro\License\Notices\Trial_Expired_Notice;
-use ElementorPro\License\Notices\Trial_Period_Notice;
 use ElementorPro\Plugin;
-use ElementorPro\License\API as License_API;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 class Admin {
+	use Editor_One_Trait;
+
 	const API_TEMPLATES_URL = 'https://my.elementor.com/api/connect/v1/library/templates';
 
 	public function __construct() {
@@ -79,6 +75,7 @@ class Admin {
 		return $response;
 	}
 
+
 	public function register_actions() {
 		add_filter( 'http_response',  [ $this, 'http_remove_pro_templates'], 10, 3 );
 
@@ -87,5 +84,19 @@ class Admin {
 
 	private function register_rest_controller() {
 		new Controller();
+	}
+
+	private function get_license_box_classes( string $additional_classes = '' ): string {
+		$classes = [ 'elementor-license-box' ];
+
+		if ( $additional_classes ) {
+			$classes[] = $additional_classes;
+		}
+
+		if ( $this->is_editor_one_active() ) {
+			$classes[] = 'e-one-section-outlined';
+		}
+
+		return implode( ' ', $classes );
 	}
 }
